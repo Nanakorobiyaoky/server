@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "524480b7-7132-43d4-b480-7d701ac31946",
+		"name": "requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26274365"
+	},
+	"item": [
+		{
+			"name": "get_all_films",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080?table=films",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"query": [
+						{
+							"key": "table",
+							"value": "films"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_one_film_with_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080?table=films&id=4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"query": [
+						{
+							"key": "table",
+							"value": "films"
+						},
+						{
+							"key": "id",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "4"
+						},
+						{
+							"key": "id",
+							"value": "5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_genres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080?table=genres",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"query": [
+						{
+							"key": "table",
+							"value": "genres"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_one_genre_with_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080?table=genres&id=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"query": [
+						{
+							"key": "table",
+							"value": "genres"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "3"
+						},
+						{
+							"key": "id",
+							"value": "4",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert_genres",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    \"Ужас\",\r\n    \"Вестерн\",\r\n    \"Триллер\",\r\n    \"Спортивный\"\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080?table=genres",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"query": [
+						{
+							"key": "table",
+							"value": "genres"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert_films",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"film_name\": \"Криминальное чтиво\",\r\n        \"year\": 1994,\r\n        \"genres\": [\r\n            1,\r\n            3,\r\n            16\r\n        ]\r\n    },\r\n    {\r\n        \"film_name\": \"Властелин колец: Братство Кольца\",\r\n        \"year\": 2003,\r\n        \"genres\": [\r\n            1,\r\n            10,\r\n            2,\r\n            130\r\n        ]\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080?table=films",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"query": [
+						{
+							"key": "table",
+							"value": "films"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_genres",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"genre_name\": \"Для всей семьи\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"genre_name\": \"Боевик\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080?table=genres",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"query": [
+						{
+							"key": "table",
+							"value": "genres"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_films",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"film_name\": \"Красная миля\",\r\n        \"year\": 1999,\r\n        \"genres\": [\r\n            1,\r\n            2,\r\n            3\r\n        ]\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"film_name\": \"Словарь Шиндлера\",\r\n        \"year\": 1995,\r\n        \"genres\": [\r\n            10,\r\n            11,\r\n            12,\r\n            13\r\n        ]\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080?table=films",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"query": [
+						{
+							"key": "table",
+							"value": "films"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_films_with_id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[1, 2, 3, 4]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080?table=films",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"query": [
+						{
+							"key": "table",
+							"value": "films"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_genres_with_id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[2,3,4,5,6,7,8,9]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080?table=genres",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"query": [
+						{
+							"key": "table",
+							"value": "genres"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
