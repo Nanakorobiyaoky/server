@@ -1,9 +1,9 @@
 'use strict';
 
-const http = require('http');  // npm run dev
+const http = require('http');
 const url = require('url');
-const {FilmController} = require('./controllers/filmController.js')
-const {GenresController} = require('./controllers/genresController.js')
+const {FilmController} = require('./controllers/filmController.js');
+const {GenresController} = require('./controllers/genresController.js');
 
 
 const server = http.createServer();
@@ -23,6 +23,11 @@ server.on('request', (req, res) => {
         if (error) console.log(error.message);
         res.writeHead(400, {'Content-Type': 'text/plain; charset=utf-8'});
         res.end('400 Bad Request');
+    }
+
+    function _405() {
+        res.writeHead(405, {'Content-Type': 'text/plain; charset=utf-8'});
+        res.end('405 Method Not Allowed');
     }
 
     const method = req.method;
@@ -80,8 +85,7 @@ server.on('request', (req, res) => {
                     })
 
             } else {
-                res.writeHead(400, {'Content-Type': 'text/plain; charset=utf-8'});
-                res.end('400 Bad Request');
+                _400();
             }
         })
 
@@ -100,7 +104,6 @@ server.on('request', (req, res) => {
                         _200(`200 ok`);
                     })
                     .catch(error => {
-                        console.log(error)
                         _400(error);
                     })
             } else if (table === 'films') {
@@ -109,13 +112,11 @@ server.on('request', (req, res) => {
                         _200(`200 ok`);
                     })
                     .catch(error => {
-                        console.log(error)
                         _400(error);
                     })
 
             } else {
-                res.writeHead(400, {'Content-Type': 'text/plain; charset=utf-8'});
-                res.end('400 Bad Request');
+                _400();
             }
         })
 
@@ -133,7 +134,6 @@ server.on('request', (req, res) => {
                         _200(`200 ok`);
                     })
                     .catch(error => {
-                        console.log(error)
                         _400(error);
                     })
             } else if (table === 'films') {
@@ -142,22 +142,18 @@ server.on('request', (req, res) => {
                         _200(`200 ok`);
                     })
                     .catch(error => {
-                        console.log(error)
                         _400(error);
                     })
 
             } else {
-                res.writeHead(400, {'Content-Type': 'text/plain; charset=utf-8'});
-                res.end('400 Bad Request');
+                _400();
             }
         })
     } else {
-        res.writeHead(405, {'Content-Type': 'text/plain; charset=utf-8'});
-        res.end('405 Method Not Allowed');
+        _405();
     }
 
 
 })
 
-
-server.listen(8080, () => console.log('is work'))
+server.listen(8080, () => console.log('server is running'));
